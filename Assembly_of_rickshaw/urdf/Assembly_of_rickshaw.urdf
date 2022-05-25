@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Assembly_of_rickshaw">
+  <link
+    name="Chassis">
+    <inertial>
+      <origin
+        xyz="0.0179015432099166 0.00883157016107548 0.555493054780107"
+        rpy="0 0 0" />
+      <mass
+        value="5.94108220023936" />
+      <inertia
+        ixx="2.86961489353881"
+        ixy="-3.21160082509927E-06"
+        ixz="-0.289647829977624"
+        iyy="3.52332660507633"
+        iyz="1.34393979355656E-06"
+        izz="1.34842872812582" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assembly_of_rickshaw/meshes/Chassis.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assembly_of_rickshaw/meshes/Chassis.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Fork">
+    <inertial>
+      <origin
+        xyz="-8.17522745055754E-08 -1.28205918586699E-05 0.384873519969362"
+        rpy="0 0 0" />
+      <mass
+        value="1.53594277272077" />
+      <inertia
+        ixx="0.114922939125292"
+        ixy="-3.60131546823378E-08"
+        ixz="3.41082460689732E-08"
+        iyy="0.063659112873893"
+        iyz="1.2245690536632E-06"
+        izz="0.0514845803045497" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assembly_of_rickshaw/meshes/Fork.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assembly_of_rickshaw/meshes/Fork.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Fork_joint"
+    type="continuous">
+    <origin
+      xyz="1.21005005042187 0.00883090850402383 -0.18955344944057"
+      rpy="0.0208324376805739 -0.383434898651884 -0.0556361840402595" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Fork" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Front_wheel">
+    <inertial>
+      <origin
+        xyz="-1.55431223447522E-15 1.2490009027033E-15 -0.00162499999999997"
+        rpy="0 0 0" />
+      <mass
+        value="17.1808091995759" />
+      <inertia
+        ixx="0.259198802825552"
+        ixy="-3.3881317890172E-19"
+        ixz="6.07153216591882E-18"
+        iyy="0.259198802825552"
+        iyz="6.59194920871187E-17"
+        izz="0.492901062488341" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assembly_of_rickshaw/meshes/Front_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assembly_of_rickshaw/meshes/Front_wheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5707963267949 -0.393234835424218 3.14159265358979" />
+    <parent
+      link="Fork" />
+    <child
+      link="Front_wheel" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Rear_wheel_1">
+    <inertial>
+      <origin
+        xyz="0 0 -0.000103679096847109"
+        rpy="0 0 0" />
+      <mass
+        value="17.1923341322256" />
+      <inertia
+        ixx="0.259279784775858"
+        ixy="0"
+        ixz="2.49126071873759E-19"
+        iyy="0.259279784775858"
+        iyz="2.14595267342508E-19"
+        izz="0.492902563364008" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assembly_of_rickshaw/meshes/Rear_wheel_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assembly_of_rickshaw/meshes/Rear_wheel_1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Rear_wheel_1_joint"
+    type="continuous">
+    <origin
+      xyz="-1.05040375431683 -0.467894091495976 -0.189915295409822"
+      rpy="1.5707963267949 0.711070783946853 0" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Rear_wheel_1" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Rear_wheel_2">
+    <inertial>
+      <origin
+        xyz="0 0 -0.000103679096847109"
+        rpy="0 0 0" />
+      <mass
+        value="17.1923341322256" />
+      <inertia
+        ixx="0.259279784775858"
+        ixy="-1.66063671354125E-17"
+        ixz="-5.46826310106561E-20"
+        iyy="0.259279784775858"
+        iyz="-1.25669343412388E-18"
+        izz="0.492902563364008" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assembly_of_rickshaw/meshes/Rear_wheel_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assembly_of_rickshaw/meshes/Rear_wheel_2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Rear_wheel_2_joint"
+    type="continuous">
+    <origin
+      xyz="-1.05040375431683 0.485555908504024 -0.189915295409822"
+      rpy="1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Rear_wheel_2" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+</robot>
