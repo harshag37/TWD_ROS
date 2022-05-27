@@ -1,0 +1,6 @@
+pid_gains:
+    Rear_wheel_1_joint:
+        p: 10.0
+    Rear_wheel_2_joint:
+        p: 10.0
+

@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-1-g15f4949  Build Version: 1.6.7594.29634
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="e_rick">
+<gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotNamespace>/e_rick</robotNamespace>
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+  <link
+    name="Chassis">
+    <inertial>
+      <origin
+        xyz="0.0179015432099166 0.00883157016107548 0.555493054780107"
+        rpy="0 0 0" />
+      <mass
+        value="5.94108220023936" />
+      <inertia
+        ixx="2.86961489353881"
+        ixy="-3.21160082509927E-06"
+        ixz="-0.289647829977624"
+        iyy="3.52332660507633"
+        iyz="1.34393979355656E-06"
+        izz="1.34842872812582" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://e_rick/meshes/Chassis.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://e_rick/meshes/Chassis.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Fork">
+    <inertial>
+      <origin
+        xyz="-8.17522745055754E-08 -1.28205918586699E-05 0.384873519969362"
+        rpy="0 0 0" />
+      <mass
+        value="1.53594277272077" />
+      <inertia
+        ixx="0.114922939125292"
+        ixy="-3.60131546823378E-08"
+        ixz="3.41082460689732E-08"
+        iyy="0.063659112873893"
+        iyz="1.2245690536632E-06"
+        izz="0.0514845803045497" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://e_rick/meshes/Fork.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://e_rick/meshes/Fork.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Fork_joint"
+    type="continuous">
+    <origin
+      xyz="1.21005005042187 0.00883090850402383 -0.18955344944057"
+      rpy="0.0208324376805739 -0.383434898651884 -0.0556361840402595" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Fork" />
+    <axis
+      xyz="0 0 1" />
+      <!-- <limit upper="0.3975" lower="-0.3975" />
+      </axis> -->
+  </joint>
+  <link
+    name="Front_wheel">
+    <inertial>
+      <origin
+        xyz="-1.55431223447522E-15 1.2490009027033E-15 -0.00162499999999997"
+        rpy="0 0 0" />
+      <mass
+        value="17.1808091995759" />
+      <inertia
+        ixx="0.259198802825552"
+        ixy="-3.3881317890172E-19"
+        ixz="6.07153216591882E-18"
+        iyy="0.259198802825552"
+        iyz="6.59194920871187E-17"
+        izz="0.492901062488341" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://e_rick/meshes/Front_wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://e_rick/meshes/Front_wheel.STL" />
+      </geometry>
+      <!-- <max_contacts>1</max_contacts>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.5</mu>
+              <mu2>0.5</mu2>
+              <fdir1>2 .5 .5</fdir1>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <min_depth>0.001</min_depth>
+              <kp>1e9</kp>
+            </ode>
+          </contact>
+        </surface> -->
+    </collision>
+  </link>
+  <joint
+    name="Front_wheel_joint"
+    type="continuous">
+    <origin
+      xyz="0 0 0"
+      rpy="1.5707963267949 -0.393234835424218 3.14159265358979" />
+    <parent
+      link="Fork" />
+    <child
+      link="Front_wheel" />
+    <axis
+      xyz="0 0 1" />
+    <!-- <limit>
+    <velocity "3000"/>
+    </limit> -->
+  </joint>
+  <link
+    name="Rear_wheel_1">
+    <inertial>
+      <origin
+        xyz="0 0 -0.000103679096847109"
+        rpy="0 0 0" />
+      <mass
+        value="17.1923341322256" />
+      <inertia
+        ixx="0.259279784775858"
+        ixy="0"
+        ixz="2.49126071873759E-19"
+        iyy="0.259279784775858"
+        iyz="2.14595267342508E-19"
+        izz="0.492902563364008" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://e_rick/meshes/Rear_wheel_1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://e_rick/meshes/Rear_wheel_1.STL" />
+      </geometry>
+      <!-- <max_contacts>1</max_contacts>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.5</mu>
+              <mu2>0.5</mu2>
+              <fdir1>2 0.5 0.5</fdir1>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <min_depth>0.001</min_depth>
+              <kp>1e9</kp>
+            </ode>
+          </contact>
+        </surface> -->
+    </collision>
+  </link>
+  <joint
+    name="Rear_wheel_1_joint"
+    type="continuous">
+    <origin
+      xyz="-1.05040375431683 -0.467894091495976 -0.189915295409822"
+      rpy="1.5707963267949 0.711070783946853 0" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Rear_wheel_1" />
+    <axis
+      xyz="0 0 1" />
+    <!-- <limit>
+    <velocity "3000"/>
+    </limit> -->
+  </joint>
+  <link
+    name="Rear_wheel_2">
+    <inertial>
+      <origin
+        xyz="0 0 -0.000103679096847109"
+        rpy="0 0 0" />
+      <mass
+        value="17.1923341322256" />
+      <inertia
+        ixx="0.259279784775858"
+        ixy="-1.66063671354125E-17"
+        ixz="-5.46826310106561E-20"
+        iyy="0.259279784775858"
+        iyz="-1.25669343412388E-18"
+        izz="0.492902563364008" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://e_rick/meshes/Rear_wheel_2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://e_rick/meshes/Rear_wheel_2.STL" />
+      </geometry>
+      <!-- <max_contacts>1</max_contacts>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.5</mu>
+              <mu2>0.5</mu2>
+              <fdir1>2 .5 .5</fdir1>
+              <slip1>0.0</slip1>
+              <slip2>0.0</slip2>
+            </ode>
+          </friction>
+          <contact>
+            <ode>
+              <min_depth>0.001</min_depth>
+              <kp>1e9</kp>
+            </ode>
+          </contact>
+        </surface> -->
+    </collision>
+  </link>
+  <joint
+    name="Rear_wheel_2_joint"
+    type="continuous">
+    <origin
+      xyz="-1.05040375431683 0.485555908504024 -0.189915295409822"
+      rpy="1.5707963267949 0 3.14159265358979" />
+    <parent
+      link="Chassis" />
+    <child
+      link="Rear_wheel_2" />
+    <axis
+      xyz="0 0 1" />
+    <!-- <limit>
+    <velocity "3000"/>
+    </limit> -->
+  </joint>
+
+ <!--velodyne-->
+
+ 
+  <!-- <joint name="${name}_base_mount_joint" type="continuous">
+      <xacro:insert_block name="origin" />
+      <parent link="${namespace}/${parent}"/>
+      <child link="${namespace}/${name}"/>
+     
+      <axis xyz="1 0 0" rpy="0 0 0" />
+      <limit effort="100" velocity="1"/>
+      <joint_properties damping="0.0" friction="0.0"/>
+    </joint> -->
+
+  <!-- Transmission is important to link the joints and the controller -->
+
+
+
+
+<gazebo reference="laser_link">
+    <sensor type="ray" name="VLP16">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>false</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>360</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.570796</min_angle>
+            <max_angle>1.570796</max_angle>
+          </horizontal>
+          <vertical>
+            <samples>16</samples>
+            <resolution>1</resolution>
+            <min_angle>-1.570796</min_angle>
+            <max_angle>1.570796</max_angle>
+          </vertical>
+        </scan>
+        <range>
+          <min>0.10</min>
+          <max>30.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <!-- Noise parameters based on published spec for Hokuyo laser
+               achieving "+-30mm" accuracy at range < 10m.  A mean of 0.0m and
+               stddev of 0.01m will put 99.7% of samples within 0.03m of the true
+               reading. -->
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_laser_controller" filename="libgazebo_ros_velodyne_laser.so">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>100.0</updateRate>
+      <velocity>50</velocity>
+      <MotorJoint>laser_joint</MotorJoint>
+      <torque>60</torque>
+      <broadcastTF>1</broadcastTF>
+        <topicName>/velodyne_points</topicName>
+        <frameName>laser_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+<link name="laser_link">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	    <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://e_rick/meshes/hokuyo.dae"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+ <joint name="laser_joint" type="continuous">
+    <axis xyz="0 1 0" />
+    <origin xyz="0 0 1.348" rpy="0 0 0"/>
+    <parent link="Chassis"/>
+    <child link="laser_link"/>
+    <limit effort="100" velocity="100"/>
+    <joint_properties damping="0.0" friction="0.0"/>
+  </joint>
+<!-- 
+    <transmission name="laser_trans">
+      <type>transmission_interface/SimpleTransmission</type>
+      <joint name="laser_joint">
+     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      </joint>
+      <actuator name="laser_joint_motor">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+    </transmission> -->
+
+
+<!--velodyne ends-->
+
+
+  <transmission name="tran1">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Rear_wheel_1_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor1">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+	<transmission name="tran2">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Rear_wheel_2_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor2">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+  	<!-- <transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Front_wheel_joint">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <hardwareInterface>hardware_interface/VelocityJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission> -->
+
+  	<transmission name="tran3">
+    <type>transmission_interface/SimpleTransmission</type>
+    <joint name="Fork_joint">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint>
+    <actuator name="motor3">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+      <mechanicalReduction>1</mechanicalReduction>
+    </actuator>
+  </transmission>
+
+
+
+<gazebo reference="Rear_wheel_1">
+    <material>Gazebo/Black</material>
+  </gazebo>
+<gazebo reference="Rear_wheel_2">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="Front_wheel">
+    <material>Gazebo/Black</material>
+  </gazebo>
+  <gazebo reference="Fork">
+    <material>Gazebo/Red</material>
+  </gazebo>
+</robot>
